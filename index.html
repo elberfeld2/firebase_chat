@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="img/icono1024.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+            Chat
+          </a>
+        </div>
+      </nav>
+    <div class="container">
+        <div class="menu row mt-3" id="_apodo">
+            <div class="col-12">
+                <h2>Escribe tu apodo</h2>
+                <input type="text" class="form-control mt-3" placeholder="Apodo" onchange="cambiar_apodo(this)">
+            </div>
+        </div>
+        <div class="menu row mt-3" id="_chats">
+            <h2>Chats 
+                <button onclick="salir()" class="btn btn-primary btn-sm" >Salir</button>
+                <button onclick="crear()" class="btn btn-primary btn-sm" >Crear</button>
+            </h2>
+
+            <div id="list-chat" class="row mt-3">
+
+            </div>
+        </div>
+        <div class="menu row mt-3" id="_crear">
+            <h2>Chats 
+                <button onclick="salir()" class="btn btn-primary btn-sm" >Salir</button>
+                <button onclick="regresar()" class="btn btn-primary btn-sm" >Regresar</button>
+            </h2>
+
+            <input type="text" class="form-control mt-3" placeholder="Nombre del chat" id="nombre-sala">
+            <input type="password" class="form-control mt-1" placeholder="Contraseña" id="contrasena-sala">
+            <button onclick="crear_sala()" class="btn btn-primary mt-3">Crear chat</button>
+        </div>
+        <div class="menu row mt-3" id="_acion">
+            <div class="col-12">
+                <h3 id="nombre-acion"></h3>
+                <input type="password" class="form-control mt-3 w-100" placeholder="Contraseña" id="contrasena-acion">
+                <div id="boton" class="row m-1"></div>
+            </div>
+        </div>
+        <div class="menu menu row mt-3" id="_mensajes">
+            <h2 class="col-12"><samp id="mensajes_titulo"></samp> <button class="btn btn-primary btn-sm" onclick="regresar()">Regresar</button></h2>
+            <input type="text" class="form-control mt-3"placeholder="Mensaje" onchange="agregar_mensaje(this)">
+            <div id="mensajes" class="list-group w-100 mt-2"></div>
+        </div>
+    </div>
+    <script src="./js/conexion.js"></script>
+    <script src="./js/notificaciones.js"></script>
+    <script src="./js/chat.js"></script>
+</body>
+
+</html>

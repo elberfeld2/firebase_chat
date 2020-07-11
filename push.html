@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="solicitar()">Notificacion</button>
+    <script>
+        function notification() {
+            let notification = new Notification('Titulo ',
+                {
+                    body: 'Mensaje',
+                    icon: "./img/icono192.png",
+                    onclick: e => console.log("Notificacion")
+                });
+                notification.onclick = e=>{console.log("Nuevo")}
+        }
+        function solicitar() {
+            if (!("Notification" in window)) {
+                alert("This browser does not support desktop notification")
+            }
+            else if (Notification.permission === "granted") {
+                notification()
+            }
+            else if (Notification.permission !== 'denied') {
+                Notification.requestPermission(function (permission) {
+                    if (permission === "granted") {
+                        notification()
+                    }
+                })
+            }
+        }
+    </script>
+</body>
+
+</html>
