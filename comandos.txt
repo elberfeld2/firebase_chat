@@ -1,0 +1,20 @@
+
+//Firebase normal
+
+firebase login
+firebase init
+firebase deploy
+
+//Generar Token
+
+firebase login:ci
+
+//Git
+echo "# firebase_chat" >> README.md
+git init
+git add .
+git commit -m "mensaje"
+
+git remote add origin https://github.com/elberfeld2/firebase_chat.git
+git push -u origin master
+                
